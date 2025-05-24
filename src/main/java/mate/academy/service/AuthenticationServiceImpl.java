@@ -10,13 +10,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public User login(String login, String password) throws AuthenticationException {
-        logger.info("Method of login( ) was called with login! " + login);
+        logger.info("Method of login( ) was called with login! ", login);
         User user = findByLogin(login);
         if (!user.getPassword().equals(password)) {
-            logger.warn("Login failed for user! " + user);
+            logger.warn("Login failed for user! ", user);
             throw new AuthenticationException("Username or password are incorrect");
         }
-        logger.info("User " + login + " was successfully logged! login={}, id={}",login, password);
+        logger.info("User " + login + " was successfully logged! login={}, id={}", login,
+                user.getUserId());
         return user;
     }
 

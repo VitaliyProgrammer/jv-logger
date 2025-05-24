@@ -21,13 +21,12 @@ public class Main {
             logger.info("Start process of authentication");
             user = authenticationService.login("bob", "1234");
         } catch (AuthenticationException e) {
-            e.printStackTrace();
             logger.error("Authentication is failed! {}", e.getMessage());
             return;
         }
         OrderService orderService = new OrderServiceImpl();
         Order order = orderService.completeOrder(user.getUserId());
-        logger.info("The order is completed. OrderId {} UserId {},",
-                order.getOrderId(), order.getUserId());
+        logger.info("The order is completed. OrderId {} UserId {},", order.getOrderId(),
+                order.getUserId());
     }
 }
