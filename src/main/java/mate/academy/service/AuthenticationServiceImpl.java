@@ -25,7 +25,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         logger.debug("Attempting to find user by login:{}", login);
         User user = new User(login, "1234");
         user.setUserId(2L);
-        logger.debug("The user with this login was found!: login={}, id={}", user.getLogin(), user.getUserId());
+        logger.debug("The login was found!: login={}, id={}", user.getLogin(),
+                user.getUserId());
         return user;
     }
 }
