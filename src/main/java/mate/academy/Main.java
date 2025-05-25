@@ -21,7 +21,7 @@ public class Main {
             logger.info("Start process of authentication");
             user = authenticationService.login("bob", "1234");
         } catch (AuthenticationException e) {
-            logger.error("Authentication is failed! {}", e.getMessage());
+            logger.error("Authentication is failed! ", e);
             return;
         }
         OrderService orderService = new OrderServiceImpl();
